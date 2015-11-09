@@ -1,5 +1,18 @@
 <h2 class="text-center">AngularJS Boilerplate</h2>
 
+<ui-gmap-google-map center='main.map.center' zoom='main.map.zoom'>
+  <ui-gmap-markers models="main.markers" coords="'location'" click="main.showInfo"></ui-gmap-markers>
+
+  <ui-gmap-window coords="main.infoBusiness.location" show="main.infoVisible" closeClick="main.hideInfo()"
+                  options="main.windowOptions">
+    <div>
+      <a target="_blank" href="{{main.infoBusiness.url}}">{main.infoBusiness.name}}</a>
+    </div>
+  </ui-gmap-window>
+
+</ui-gmap-google-map>
+
+
 <!-- slider directive -->
 <div myslider>
     <ul class="slider">

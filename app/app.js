@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * AngularJS Boilerplate
  * @description           Description
  * @author                Jozef Butko // www.jozefbutko.com/resume
@@ -7,7 +7,7 @@
  * @version               1.1.7
  * @date                  March 2015
  * @license               MIT
- * 
+ *
  */
 ;(function() {
 
@@ -17,9 +17,18 @@
    */
   angular
     .module('boilerplate', [
-      'ngRoute'
+      'ngRoute',
+      'uiGmapgoogle-maps',
+      'ngGeolocation'
     ])
-    .config(config);
+    .config(config)
+    .config(function(uiGmapGoogleMapApiProvider) {
+      uiGmapGoogleMapApiProvider.configure({
+        //key: 'your api key',
+        //libraries: 'weather,geometry,visualization',
+        v: '3.17'
+      });
+    });
 
   // safe dependency injection
   // this prevents minification issues
@@ -30,7 +39,7 @@
    *
    * You can leave it here in the config section or take it out
    * into separate file
-   * 
+   *
    */
   function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
 
@@ -65,7 +74,7 @@
   /**
    * You can intercept any request or response inside authInterceptor
    * or handle what should happend on 40x, 50x errors
-   * 
+   *
    */
   angular
     .module('boilerplate')
